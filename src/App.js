@@ -1,25 +1,30 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import "./App.css";
+import SunMoon from "./SunMoon";
+import Fullscreen from "./Fullscreen";
+import Main from "./Main";
+import { BrowserRouter as Router, Route, Routes, Navigate } from "react-router-dom";
 
-function App() {
+export default function TKD() {
+  // window.oncontextmenu = function () {
+  //   console.log("Right Click Disabled");
+  //   return false;
+  // };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <>
+      <SunMoon />
+      <Main />
+      {/* <Router>
+        <Routes>
+          <Route extact path="/" element={<Navigate to="/login" />} />
+          <Route extact path="/login" element={<Login />} />
+          <Route extact path="/registration" element={<Registration />} />
+          <Route extact path="/forgot" element={<Forgot />} />
+          <Route exact path="/404" element={<Error404 />} />
+          <Route path="*" element={<Navigate to="/404" />} />
+        </Routes>
+      </Router> */}
+      <div className="absolute top-0 right-0 z-[1] hidden md:block"><Fullscreen /></div>
+    </>
+  )
 }
-
-export default App;
